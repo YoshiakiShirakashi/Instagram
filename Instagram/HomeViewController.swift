@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -116,11 +117,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
+        cell.commentButton.addTarget(self, action:#selector(commentHandleButton(_:forEvent:)), for: .touchUpInside)
         
         return cell
     }
     
-    // セル内のボタンがタップされた時に呼ばれるメソッド
+    // セル内のいいねボタンがタップされた時に呼ばれるメソッド
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: likeボタンがタップされました。")
         
@@ -155,6 +157,43 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             postRef.updateChildValues(likes)
             
         }
+    }   
+    // セル内のコメントボタンがタップされた時に呼ばれるメソッド
+    @objc func commentHandleButton(_ sender: UIButton, forEvent event: UIEvent) {
+        print("DEBUG_PRINT: コメントボタンがタップされました。")
+        
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        // postDataに必要な情報を取得しておく
+        let name :String = (Auth.auth().currentUser?.displayName)!
+        let com = comment
+        print (com)
+        
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath!.row]
+        // コメントをcaptionに追加する
+        if com == "" {
+            // HUDで投稿完了を表示する
+            SVProgressHUD.showSuccess(withStatus: "コメント欄が空欄です。")
+            return
+        }else{
+            let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
+            var POST :String = ""
+            print(postData.caption!)
+            let kaigyou = "\n  "
+            let koron = " : "
+            let kakoCaption = postData.caption!
+            POST = kakoCaption + kaigyou
+            POST = POST + name
+            POST = POST + koron + com
+            let caption = ["caption": POST]
+            postRef.updateChildValues(caption)
+            
+            // HUDで投稿完了を表示する
+            SVProgressHUD.showSuccess(withStatus: "コメントしました")
+        }
     }
-    
 }

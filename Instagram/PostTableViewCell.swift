@@ -7,19 +7,36 @@
 //
 
 import UIKit
+import Firebase
+import SVProgressHUD
 
-class PostTableViewCell: UITableViewCell {
+var comment = ""
+
+class PostTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
-    
+    @IBOutlet weak var comTextField: UITextField!
+    @IBOutlet weak var commentButton: UIButton!
+    @IBAction func comButtonAction(_ sender: Any) {
+        comment = comTextField.text!
+        comTextField.text = ""
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        comTextField.delegate = self
         // Initialization code
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+        
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
