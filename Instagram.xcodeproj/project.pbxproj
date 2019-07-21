@@ -18,6 +18,11 @@
 		993251F622E3ED2B00A235C1 /* ImageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993251F522E3ED2B00A235C1 /* ImageSelectViewController.swift */; };
 		993251F822E3ED4700A235C1 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993251F722E3ED4700A235C1 /* PostViewController.swift */; };
 		993251FA22E3ED6700A235C1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993251F922E3ED6700A235C1 /* SettingViewController.swift */; };
+		9984914722E3FD6C00AA9371 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9984914622E3FD6B00AA9371 /* GoogleService-Info.plist */; };
+		999C928322E4330500C4B693 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999C928222E4330500C4B693 /* Const.swift */; };
+		999C928522E4356200C4B693 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999C928422E4356200C4B693 /* PostData.swift */; };
+		999C928822E4362000C4B693 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999C928622E4362000C4B693 /* PostTableViewCell.swift */; };
+		999C928922E4362000C4B693 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 999C928722E4362000C4B693 /* PostTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +40,11 @@
 		993251F722E3ED4700A235C1 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		993251F922E3ED6700A235C1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		995AF10488F1B329D2D6926B /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
+		9984914622E3FD6B00AA9371 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		999C928222E4330500C4B693 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		999C928422E4356200C4B693 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		999C928622E4362000C4B693 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		999C928722E4362000C4B693 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		A0EA67FDE741AF0279F7D055 /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,6 +109,11 @@
 				993251F522E3ED2B00A235C1 /* ImageSelectViewController.swift */,
 				993251F722E3ED4700A235C1 /* PostViewController.swift */,
 				993251F922E3ED6700A235C1 /* SettingViewController.swift */,
+				9984914622E3FD6B00AA9371 /* GoogleService-Info.plist */,
+				999C928222E4330500C4B693 /* Const.swift */,
+				999C928422E4356200C4B693 /* PostData.swift */,
+				999C928622E4362000C4B693 /* PostTableViewCell.swift */,
+				999C928722E4362000C4B693 /* PostTableViewCell.xib */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -164,6 +179,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				993251EA22E3EBA200A235C1 /* LaunchScreen.storyboard in Resources */,
+				999C928922E4362000C4B693 /* PostTableViewCell.xib in Resources */,
+				9984914722E3FD6C00AA9371 /* GoogleService-Info.plist in Resources */,
 				993251E722E3EBA200A235C1 /* Assets.xcassets in Resources */,
 				993251E522E3EBA100A235C1 /* Main.storyboard in Resources */,
 			);
@@ -197,11 +214,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Instagram/Pods-Instagram-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CLImageEditor/CLImageEditor.framework",
 				"${BUILT_PRODUCTS_DIR}/ESTabBarController/ESTabBarController.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CLImageEditor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTabBarController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -216,10 +245,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				993251F822E3ED4700A235C1 /* PostViewController.swift in Sources */,
+				999C928522E4356200C4B693 /* PostData.swift in Sources */,
 				993251F222E3ECBA00A235C1 /* LoginViewController.swift in Sources */,
 				993251E222E3EBA100A235C1 /* ViewController.swift in Sources */,
 				993251E022E3EBA100A235C1 /* AppDelegate.swift in Sources */,
 				993251F622E3ED2B00A235C1 /* ImageSelectViewController.swift in Sources */,
+				999C928322E4330500C4B693 /* Const.swift in Sources */,
+				999C928822E4362000C4B693 /* PostTableViewCell.swift in Sources */,
 				993251FA22E3ED6700A235C1 /* SettingViewController.swift in Sources */,
 				993251F422E3ECF700A235C1 /* HomeViewController.swift in Sources */,
 			);
