@@ -119,6 +119,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         return cell
     }
+    
     // セル内のボタンがタップされた時に呼ばれるメソッド
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: likeボタンがタップされました。")
@@ -155,4 +156,5 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
         }
     }
+    
 }
